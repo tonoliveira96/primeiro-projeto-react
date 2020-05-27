@@ -1,4 +1,4 @@
-import {GlobalStyleComponent, createGlobalStyle} from 'styled-components'
+import { createGlobalStyle} from 'styled-components'
 
 import githubbackgroud from '../assets/github.svg';
 
