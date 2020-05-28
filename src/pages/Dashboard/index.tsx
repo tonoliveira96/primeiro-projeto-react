@@ -1,4 +1,4 @@
-import React, { useState, FormEvent } from 'react';
+import React, { useState,useEffect, FormEvent } from 'react';
 import { FiArrowRight } from 'react-icons/fi';
 import api from '../../services/api';
 
@@ -18,7 +18,24 @@ interface Repository {
 const Dashboard: React.FC = () => {
   const [newRepo, setNewRepo] = useState('');
   const [inputError, setInputError] = useState('');
-  const [repositories, setRepository] = useState<Repository[]>([]);
+  const [repositories, setRepository] = useState<Repository[]>(()=>{
+    const storageRepositories = localStorage.getItem('@githubExplorer:repositories');
+
+    if(storageRepositories){
+      return JSON.parse(storageRepositories);
+    }else{
+      return []
+    }
+  });
+
+  useEffect(()=>{
+
+  })
+
+  //coloca os dados no storage
+  useEffect(()=>{
+    localStorage.setItem('@githubExplorer:repositories',JSON.stringify(repositories))
+  })
 
   //FAZ A BUSCAR NA API
   async function handleAddRepository(
@@ -42,7 +59,7 @@ const Dashboard: React.FC = () => {
     }
   }
 
-  //inicia a renderizaçãoem tela
+  //inicia a renderização em tela
   return (
     <>
       <img src={logoImg} alt="github Explorer" />
