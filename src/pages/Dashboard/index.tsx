@@ -29,6 +29,7 @@ const Dashboard: React.FC = () => {
     const repository = response.data;
 
     setRepository([...repositories, repository]);
+    setNewRepo('')
   }
 
   return (
