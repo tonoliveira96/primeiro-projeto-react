@@ -1,5 +1,6 @@
 import React, { useState,useEffect, FormEvent } from 'react';
 import { FiArrowRight } from 'react-icons/fi';
+import {Link} from 'react-router-dom';
 import api from '../../services/api';
 
 import logoImg from '../../assets/logo-app.svg';
@@ -7,7 +8,7 @@ import logoImg from '../../assets/logo-app.svg';
 import { Title, Form, Repository, Error } from './styles';
 
 interface Repository {
-  fullname: string;
+  full_name: string;
   description: string;
   owner: {
     login: string;
@@ -78,17 +79,17 @@ const Dashboard: React.FC = () => {
 
       <Repository>
         {repositories.map((repository) => (
-          <a key={repository.fullname} href="teste">
+          <Link key={repository.full_name} to={`/repositories/${repository.full_name}`}>
             <img
               src={repository.owner.avatar_url}
               alt={repository.owner.login}
             />
             <div>
-              <strong>{repository.fullname}</strong>
+              <strong>{repository.full_name}</strong>
               <p>{repository.description}</p>
             </div>
             <FiArrowRight size={20} />
-          </a>
+          </Link>
         ))}
       </Repository>
     </>
