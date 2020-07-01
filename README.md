@@ -9,5 +9,6 @@
 
 # Front-end do desafio
 <div align="center">
-  <img src=""/>
+  <img src="https://raw.githubusercontent.com/tonoliveira96/primeiro-projeto-react/master/assets/tela-01.png"/>
+  <img src="https://raw.githubusercontent.com/tonoliveira96/primeiro-projeto-react/master/assets/tela-02.png"/>
 </div>
